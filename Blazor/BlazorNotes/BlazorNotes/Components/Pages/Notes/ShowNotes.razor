@@ -1,0 +1,47 @@
+@page "/"
+@page "/notes"
+@rendermode InteractiveServer
+@inject INoteService NoteService
+@inject NavigationManager NavigationManager
+
+<h3 class="d-block">Notatki</h3>
+
+@if (NoteService.GetAllAsync().Result.Any())
+{
+    <table class="table">
+        <thead>
+            <td>ID</td>
+            <td>Nazwa</td>
+            <td>Treść</td>
+            <td>Operacje</td>
+        </thead>
+        @foreach (Note note in NoteService.GetAllAsync().Result)
+        {
+            <tr>
+                <td>@note.Id</td>
+                <td>@note.Title</td>
+                <td>@note.Text</td>
+                <td>
+                    <button class='btn btn-danger' @onclick='() => OnDeleteClick(note.Id)'>Usuń</button>
+                    <button class='btn btn-info' @onclick='(() => NavigationManager.NavigateTo(("edit-note/" + note.Id)))'>Edytuj</button>
+                </td>
+            </tr>
+        
+        }
+    </table>   
+}
+else
+{
+    <div class="alert alert-warning">
+        Nie ma żadnych notatek!
+        <a href="add-note" class="link-primary">Utwórz nową notatkę</a>
+    </div>
+}
+
+@code {
+    private async Task OnDeleteClick(int id)
+    {
+        // TODO: Maybe display a confirmation dialog?
+        await NoteService.DeleteAsync(id);
+    }
+}

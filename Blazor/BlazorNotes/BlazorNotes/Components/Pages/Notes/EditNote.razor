@@ -1,0 +1,40 @@
+@page "/edit-note/{NoteId:int}"
+@inject INoteService NoteService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+<h3>Edytuj notatkę</h3>
+
+<EditForm Model="@newNote" OnValidSubmit="HandleValidSubmit" FormName="AddNoteForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label>Nazwa:</label>
+        <InputText @bind-Value="newNote.Title" class="form-control" />
+    </div>
+    <div>
+        <label>Treść:</label>
+        <InputTextArea @bind-Value="newNote.Text" class="form-control" size="6"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Zapisz notatkę</button>
+</EditForm>
+
+@code {
+    private Note newNote = new Note();
+    
+    [Parameter]
+    public int NoteId { get; set; }
+
+    private async Task HandleValidSubmit()
+    {
+        await NoteService.UpdateAsync(newNote);
+        
+        NavigationManager.NavigateTo("");
+    }
+
+    protected override void OnInitialized()
+    {
+        newNote = NoteService.GetByIdAsync(NoteId).Result;
+    }
+}

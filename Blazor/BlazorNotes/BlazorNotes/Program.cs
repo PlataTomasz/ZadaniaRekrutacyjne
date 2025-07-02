@@ -1,10 +1,20 @@
 using BlazorNotes.Components;
+using BlazorNotes.Contexts;
+using BlazorNotes.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Setup database
+builder.Services.AddDbContext<NotesDbContext>(options
+    => options.UseSqlite("Data Source=notes.db"));
+
+// Inject dependencies - Services
+builder.Services.AddScoped<INoteService, EfNoteService>();
 
 var app = builder.Build();
 

@@ -1,0 +1,40 @@
+@page "/add-note"
+@inject INoteService NoteService
+@rendermode InteractiveServer
+
+<h3>Utwórz notatkę</h3>
+
+@if (addedNewNote)
+{
+    <div class="alert alert-success">
+        <p class="text-success">Pomyślnie dodano nową notatkę!</p>
+    </div>
+}
+
+<EditForm Model="@newNote" OnValidSubmit="HandleValidSubmit" FormName="AddNoteForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label>Nazwa:</label>
+        <InputText @bind-Value="newNote.Title" class="form-control" />
+    </div>
+    <div>
+        <label>Treść:</label>
+        <InputTextArea @bind-Value="newNote.Text" class="form-control" size="6"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Utwórz notatkę</button>
+</EditForm>
+
+@code {
+    private Note newNote = new Note(); 
+    private bool addedNewNote = false;
+    
+    private async Task HandleValidSubmit()
+    {
+        await NoteService.AddAsync(newNote);
+        addedNewNote = true;
+        newNote = new Note();
+    }
+}
