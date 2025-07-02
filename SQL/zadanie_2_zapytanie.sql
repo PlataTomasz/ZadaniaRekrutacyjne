@@ -1,0 +1,2 @@
+--Zapytanie wykorzystuje grupowanie po identyfikatorze działu(DepartmentID), celem policzenia pracowników pracujących w danym dziale, a następnie działy zostały posortowane na podstawie ilości pracowników w każdym z nich malejąco, czyli najpierw działy z największą liczbą pracowników. Został utworzony alias na kolumnę ze zliczaniem, celem łatwiejszej interakcji z wartościami z niej.
+SELECT DepartmentID, COUNT(*) as EmployeeCount FROM Employees GROUP BY DepartmentID ORDER BY EmployeeCount DESC;

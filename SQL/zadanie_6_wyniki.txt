@@ -1,0 +1,4 @@
+EmployeeID|FirstName|LastName|DepartmentName|Salary
+1|Anna|Nowak|HR|250000
+2|Piotr|Zieliński|IT|150000
+5|Agnieszka|Kowalczyk|Sales|140000

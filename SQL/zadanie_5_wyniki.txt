@@ -1,0 +1,4 @@
+FirstName|LastName
+Anna|Nowak
+Piotr|Zieliński
+Agnieszka|Kowalczyk

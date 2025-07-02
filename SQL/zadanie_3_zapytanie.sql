@@ -1,0 +1,2 @@
+--Zapytanie oblicza sumę wynagrodzeń pracowników w każdym dziale z aliasem SalarySum, a następnie klauzulą HAVING, zostają odfiltrowane działy, w których pracownicy zarabiają łącznie powyżej 150000.Tylko ID działu i suma są wypisywane, jeśli chcielibyśmy uzyskać szczegółowe informacje na temat każdego z działów, to musielibyśmy dodać klauzulę INNER JOIN albo USING.
+SELECT DepartmentID, SUM(Salary) as SalarySum FROM Employees GROUP BY DepartmentID HAVING SalarySum > 150000;

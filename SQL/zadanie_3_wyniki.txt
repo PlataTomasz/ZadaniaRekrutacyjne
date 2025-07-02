@@ -1,0 +1,4 @@
+DepartmentID|SalarySum
+1|470000
+2|495000
+3|335000
