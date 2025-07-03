@@ -1,4 +1,5 @@
 body {
+    margin: 0;
     --bg-color: #FFFFFF;
 }
 
@@ -8,32 +9,76 @@ body {
 
 .body-container {
     height: 100vh;
+    display: grid;
+    grid-template-areas: "header header" "sidebar content";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 6rem auto;
 }
 
-.sidebar {
-    padding: 1rem;
-    flex: 1 1 auto;
-}
+.header {
+    grid-area: header;
 
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #1264ca;
+}
 
 .hamburger-menu-btn {
-    visibility: inherit;
+    visibility: hidden;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.rounded-corners {
-    border-radius: 1rem;
-    border: 3px solid gray;
+.sidebar {
+    grid-area: sidebar;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #12abca;
 }
 
-.header {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    text-align: right;
+.sidebar > div {
+    width: 80%;
+    margin: auto;
+    padding: 1rem;
+    background-color: lightgray;
+    border-radius: 0.5rem;
+}
 
-    display: flex;
-    justify-content: space-between;
+.sidebar > div:hover {
+    filter: brightness(80%);
+    transition: 0.25s;
+}
+
+.content-area {
+    padding: 1rem;
+    grid-area: content;
+}
+
+.content-area div {
+
+}
+
+@media (max-width: 800px) {
+    .body-container {
+        grid-template-areas:
+          "header"
+          "content";
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .hamburger-menu-btn {
+        visibility: inherit;
+    }
 }
 
 .carousel {
@@ -58,21 +103,4 @@ body {
 .btn-outline:hover {
     background-color: RGBA(0, 0, 0, 0.3);
     animation: pulse 2s infinite;
-}
-
-.main-container {
-    display: flex;
-    flex-flow: column;
-    margin-top: 1rem;
-    height: 100%;
-}
-
-@media (min-width: 800px) {
-    .sidebar {
-        width: 25vw;
-    }
-
-    .hamburger-menu-btn {
-        visibility: hidden;
-    }
 }
