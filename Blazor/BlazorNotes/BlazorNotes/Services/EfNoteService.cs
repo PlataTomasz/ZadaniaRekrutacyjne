@@ -17,9 +17,9 @@ public class EfNoteService(NotesDbContext context) : INoteService
         return await context.Notes.ToListAsync();
     }
 
-    public async Task<Note> GetByIdAsync(int noteId)
+    public async Task<Note> GetByIdAsync(int id)
     {
-        return await context.Notes.FindAsync(noteId);
+        return await context.Notes.FindAsync(id);
     }
 
     public async Task UpdateAsync(Note note)
