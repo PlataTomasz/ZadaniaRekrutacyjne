@@ -10,7 +10,6 @@
 {
     <table class="table">
         <thead>
-            <td>ID</td>
             <td>Nazwa</td>
             <td>Treść</td>
             <td>Operacje</td>
@@ -18,7 +17,6 @@
         @foreach (Note note in NoteService.GetAllAsync().Result)
         {
             <tr>
-                <td>@note.Id</td>
                 <td>@note.Title</td>
                 <td>@note.Text</td>
                 <td>
