@@ -17,29 +17,28 @@ function hamburgerMenuToggle() {
 function updateTheme() {
     // Na tym etapie DOM powinien być już gotowy
     var body = document.getElementsByTagName("body")[0]
+    var darkModeIcon = document.getElementById("dark-mode-icon")
 
     if(darkMode === true) {
         body.classList.add("dark-mode")
+        darkModeIcon.classList.remove("fa-moon")
+        darkModeIcon.classList.add("fa-sun")
     } else {
         body.classList.remove("dark-mode")
+        darkModeIcon.classList.remove("fa-sun")
+        darkModeIcon.classList.add("fa-moon")
     }
 }
 
 function toggleDarkMode() {
     darkMode = !darkMode
     localStorage.setItem("darkMode", darkMode)
-
-    console.log(darkMode)
-    console.log(localStorage.getItem("darkMode"))
-
     updateTheme()
 }
 
 function loadDarkModeSettings() {
     // Z localStorage
     darkMode = localStorage.getItem("darkMode") === "true";
-
-    console.log("Initial darkMode value: " + darkMode)
 
     updateTheme()
 }

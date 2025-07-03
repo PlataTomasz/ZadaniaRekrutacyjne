@@ -4,23 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rekrutacja KT-SOFT - Dashboard</title>
+    <!--Arkusz styli aplikacji-->
     <link rel="stylesheet" href="style.css"/>
+    <!--Ikony fontawesome-->
     <link rel="stylesheet" href="dependencies/fontawesome/css/all.css"/>
+    <!--Javascript do obsługi zdarzeń i zapamiętywania ustawień użytkownika, w tym włączenia trybu ciemnego-->
     <script src="js/app.js"></script>
 </head>
 <body>
     <div class="body-container">
-        <div class="header">
-            <div class="header-btn hamburger-menu-btn" onclick="hamburgerMenuToggle()">
-                <i class="fa-solid fa-bars"></i>
+        <!--Skip link-->
+        <a href="#dashboard-element-3" class="skip-link">Przejdź do 3 elementu dashboard</a>
+        <!--Nagłówek-->
+        <header class="header">
+            <div class="header-buttons">
+                <!--Przycisk menu hamburgerowego-->
+                <div class="header-btn hamburger-menu-btn" onclick="hamburgerMenuToggle()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <!--Przycisk zmiany motywu aplikacji webowej-->
+                <div class="header-btn" id="dark-mode-btn" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon" id="dark-mode-icon"></i>
+                </div>
             </div>
-            <div class="header-btn" id="dark-mode-btn" onclick="toggleDarkMode()">
-                <i class="fas fa-moon"></i>
+            <!--Pasek wyszukiwania-->
+            <div class="search-bar">
+                <form action="#">
+                    <input class="text-input" type="text" placeholder="Szukaj...">
+                    <button class="submit-btn" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
             </div>
             <div>
                 <h1>Rekrutacja KT-SOFT</h1>
             </div>
-        </div>
+        </header>
+        <!--Sidebar-->
         <aside class="sidebar" id="sidebar">
             <div>Element nawigacji #2222222221</div>
             <div>Element nawigacji #2</div>
@@ -29,17 +49,23 @@
             <div>Element nawigacji #5</div>
             <div>Element nawigacji #6</div>
         </aside>
+        <!--Specjalne elementy dashboardu-->
         <div class="content-area">
-            <!--
-            <div class="carousel">
-                <img src="img/carousel/1.jpg" alt="Kamienie na ziemi">
-                <img src="img/carousel/2.jpg" alt="Kwiaty w kolorach płomieni">
-                <img src="img/carousel/3.jpg" alt="Białe kwiaty">
-                <img src="img/carousel/4.jpg" alt="Liście na drzewie">
-                <img src="img/carousel/5.jpg" alt="Słonecznik">
+            <div class="carousel" id="dashboard-element-1">
+                <div class="carousel-images">
+                    <img src="img/carousel/1.jpg" alt="Kamienie na ziemi">
+                    <img src="img/carousel/2.jpg" alt="Kwiaty w kolorach płomieni">
+                    <img src="img/carousel/3.jpg" alt="Białe kwiaty">
+                    <img src="img/carousel/4.jpg" alt="Liście na drzewie">
+                    <img src="img/carousel/5.jpg" alt="Słonecznik">
+                </div>
             </div>
-            -->
-            <button class="btn-outline">Przycisk</button>
+            <div id="dashboard-element-2">
+                <button class="btn-outline">Przycisk</button>
+            </div>
+            <div id="dashboard-element-3">
+
+            </div>
         </div>
         </div>
 </body>
