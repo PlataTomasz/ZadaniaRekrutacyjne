@@ -1,5 +1,5 @@
 # Specific to the EFCore-Blazor sample app
-*.db
+# *.db
 *.db-shm
 *.db-wal
 

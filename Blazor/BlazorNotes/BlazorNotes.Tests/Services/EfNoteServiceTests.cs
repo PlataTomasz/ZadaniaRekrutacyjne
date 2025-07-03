@@ -13,9 +13,9 @@ public class EfNoteServiceTests
     private EfNoteService _efNoteService;
 
     private static readonly List<Note> InitialNotes = [
-        new Note { Id = 1, Title = "Pierwsza note", Text = "Notatka numer #1"},
-        new Note { Id = 2, Title = "Druga note", Text = "Notatka numer #2" },
-        new Note { Id = 3, Title = "Trzecia note", Text = "Notatka numer #3" }
+        new Note { Id = 1, Title = "Pierwsza notatka", Text = "Notatka numer #1"},
+        new Note { Id = 2, Title = "Druga notatka", Text = "Notatka numer #2" },
+        new Note { Id = 3, Title = "Trzecia notatka", Text = "Notatka numer #3" }
     ];
 
     [SetUp]
