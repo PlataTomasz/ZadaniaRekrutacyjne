@@ -1,0 +1,10 @@
+EmployeeID|FirstName|LastName|Salary|HireDate|DepartmentID|ManagerID
+2|Piotr|Zieliński|150000|2019-07-15|2|1
+5|Agnieszka|Kowalczyk|140000|2019-11-05|3|1
+7|Katarzyna|Dąbrowska|130000|2021-02-28|1|1
+3|Marta|Wiśniewska|120000|2020-01-20|2|2
+4|Tomasz|Wójcik|110000|2021-05-10|2|2
+10|Dorota|Jankowska|115000|2023-01-10|2|2
+6|Michał|Lewandowski|100000|2020-08-12|3|5
+9|Łukasz|Kozłowski|95000|2022-06-15|3|5
+8|Paweł|Kamiński|90000|2022-04-01|1|7
