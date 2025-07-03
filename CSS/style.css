@@ -1,0 +1,78 @@
+body {
+    --bg-color: #FFFFFF;
+}
+
+.dark-mode {
+    --bg-color: #00000;
+}
+
+.body-container {
+    height: 100vh;
+}
+
+.sidebar {
+    padding: 1rem;
+    flex: 1 1 auto;
+}
+
+
+.hamburger-menu-btn {
+    visibility: inherit;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.rounded-corners {
+    border-radius: 1rem;
+    border: 3px solid gray;
+}
+
+.header {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    text-align: right;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.carousel {
+    animation-name: carousel;
+}
+@keyframes carousel {
+
+}
+
+.carousel > img {
+    width: 40vw;
+    height: 40vh;
+}
+
+
+.btn-outline {
+    border: 3px solid black;
+    background-color: RGBA(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.btn-outline:hover {
+    background-color: RGBA(0, 0, 0, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.main-container {
+    display: flex;
+    flex-flow: column;
+    margin-top: 1rem;
+    height: 100%;
+}
+
+@media (min-width: 800px) {
+    .sidebar {
+        width: 25vw;
+    }
+
+    .hamburger-menu-btn {
+        visibility: hidden;
+    }
+}
