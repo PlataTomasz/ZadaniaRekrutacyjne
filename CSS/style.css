@@ -1,10 +1,41 @@
 body {
     margin: 0;
-    --bg-color: #FFFFFF;
+
+    /* Zmienne - Paleta kolorów: Niebieska*/
+    --blue-50:	#E3F2FD;
+    --blue-100:	#BBDEFB;
+    --blue-200:	#90CAF9;
+    --blue-300:	#64B5F6;
+    --blue-400:	#42A5F5;
+    --blue-500:	#2196F3;
+    --blue-600:	#1E88E5;
+    --blue-700:	#1976D2;
+    --blue-800:	#1565C0;
+    --blue-900:	#0D47A1;
+
+    /* Zmienne - Układ */
+    --header-height: 6rem;
+
+    /* Zmienne - kolory */
+    --background:           #FFFFFF;	        /* Pure white background */
+    --surface:              var(--blue-100);	/* Very light blue-tinted surface */
+    --primary:              var(--blue-700);	/* Strong medium blue (Blue 700) */
+    --primary-variant:      var(--blue-800);    /* Darker primary (Blue 800) */
+    --secondary:            var(--blue-300);	/* Light accent (Blue 300) */
+    --text-primary:         var(--blue-900);	/* Dark blue for headings */
+    --text-secondary:       var(--blue-700);	/* Medium blue for subtext */
+    --border:               #E0EAF5;            /* Light blue-grey divider */
 }
 
-.dark-mode {
-    --bg-color: #00000;
+.dark-mode{
+    --background:           #0A192F;
+    --surface:              #112240;
+    --primary:              #64B5F6;
+    --primary-variant:      #90CAF9;
+    --secondary:            #2196F3;
+    --text-primary:         #E3F2FD;
+    --text-secondary:       #BBDEFB;
+    --border:               #1C355D;
 }
 
 .body-container {
@@ -13,6 +44,9 @@ body {
     grid-template-areas: "header header" "sidebar content";
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 6rem auto;
+
+    background-color: var(--background);
+    color: var(--text-primary);
 }
 
 .header {
@@ -24,13 +58,28 @@ body {
     display: flex;
     justify-content: space-between;
 
-    background-color: #1264ca;
+    background-color: var(--surface);
+    color: var(--text-primary);
+    border-bottom: 3px solid var(--border);
 }
 
 .hamburger-menu-btn {
     visibility: hidden;
     margin-top: auto;
     margin-bottom: auto;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+.hamburger-menu-btn:hover {
+    backdrop-filter: brightness(80%);
+}
+
+.hamburger-menu-btn > i {
+    line-height: 3rem;
+    font-size: 2rem;
 }
 
 .sidebar {
@@ -38,16 +87,18 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-
-    background-color: #12abca;
+    background-color: var(--surface);
 }
 
 .sidebar > div {
     width: 80%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
     padding: 1rem;
-    background-color: lightgray;
+    background-color: var(--secondary);
     border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .sidebar > div:hover {
@@ -74,6 +125,15 @@ body {
 
     .sidebar {
         display: none;
+        top: 6rem;
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        padding: 0;
+    }
+
+    .sidebar > div {
+        line-height: 3rem;
     }
 
     .hamburger-menu-btn {
